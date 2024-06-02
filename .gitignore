@@ -7,3 +7,5 @@ pyvenv.cfg
 bin/
 lib/
 lib64/
+__pycache__/
+etc/
