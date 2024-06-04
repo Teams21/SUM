@@ -22,12 +22,6 @@ job_d = {
     11: 'unknown'
 }
 
-marital_d = {
-    0: 'divorced',
-    1: 'married',
-    2: 'single'
-}
-
 education_d = {
     0: 'primary',
     1: 'secondary',
@@ -95,7 +89,6 @@ def main():
 
     with left:
         job_radio = st.radio('Job', list(job_d.keys()), format_func=lambda x: job_d[x])
-        # marital_radio = st.radio('Martial', list(marital_d.keys()), format_func=lambda x: marital_d[x])
         education_radio = st.radio('Education', list(education_d.keys()), format_func=lambda x: education_d[x])
         default_radio = st.radio('Default', list(default_d.keys()), format_func=lambda x: default_d[x])
         housing_radio = st.radio('Housing', list(housing_d.keys()), format_func=lambda x: housing_d[x])
@@ -110,7 +103,6 @@ def main():
         day_slider = st.slider('# Day', min_value=1, max_value=31)
         duration_slider = st.slider('Duration', min_value=0, max_value=4918, step=10)
         campaign_slider = st.slider('Campaign', min_value=1, max_value=63)
-        # pdays_slider = st.slider('P_days', min_value=-1, max_value=871)
         previous_slider = st.slider('Previous', min_value=0, max_value=275)
 
     data = [[

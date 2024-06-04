@@ -1,0 +1,10 @@
+train/
+run/
+bin/
+include/
+lib/
+lib64
+README.md
+Dockerfile
+requirements.txt
+pyvenv.cfg
