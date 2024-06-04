@@ -4,7 +4,7 @@ from datetime import datetime
 
 startTime = datetime.now()
 
-filename = 'ml_models/worse_banking_model.h5'
+filename = 'ml_models/banking_model.h5'
 model = pickle.load(open(filename, 'rb'))
 
 job_d = {
@@ -95,7 +95,7 @@ def main():
 
     with left:
         job_radio = st.radio('Job', list(job_d.keys()), format_func=lambda x: job_d[x])
-        marital_radio = st.radio('Martial', list(marital_d.keys()), format_func=lambda x: marital_d[x])
+        # marital_radio = st.radio('Martial', list(marital_d.keys()), format_func=lambda x: marital_d[x])
         education_radio = st.radio('Education', list(education_d.keys()), format_func=lambda x: education_d[x])
         default_radio = st.radio('Default', list(default_d.keys()), format_func=lambda x: default_d[x])
         housing_radio = st.radio('Housing', list(housing_d.keys()), format_func=lambda x: housing_d[x])
@@ -110,13 +110,12 @@ def main():
         day_slider = st.slider('# Day', min_value=1, max_value=31)
         duration_slider = st.slider('Duration', min_value=0, max_value=4918, step=10)
         campaign_slider = st.slider('Campaign', min_value=1, max_value=63)
-        pdays_slider = st.slider('P_days', min_value=-1, max_value=871)
+        # pdays_slider = st.slider('P_days', min_value=-1, max_value=871)
         previous_slider = st.slider('Previous', min_value=0, max_value=275)
 
     data = [[
     age_slider,
     job_radio,
-    marital_radio,
     education_radio,
     default_radio,
     balance_slider,
@@ -127,9 +126,8 @@ def main():
     month_radio,
     duration_slider,
     campaign_slider,
-    pdays_slider,
-    previous_slider,
-    poutcome_radio
+    poutcome_radio,
+    previous_slider
     ]]
 
     accept_offer = model.predict(data)
