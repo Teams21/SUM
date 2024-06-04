@@ -1,0 +1,1 @@
+docker run -dp 0.0.0.0:8501:8501 suml/projekt:1.0-slim
