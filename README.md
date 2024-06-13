@@ -1,10 +1,10 @@
 # SUM
 ## Setup environment
-git clone git@github.com:Teams21/SUM.git
-cd SUM
-python -m venv .
-python -m pip install -U pip
-pip install -r requirements.txt
+1. git clone git@github.com:Teams21/SUM.git
+2. cd SUM
+3. python -m venv .
+4. python -m pip install -U pip
+5. pip install -r requirements.txt
 
 ## Setup development
 git checkout -b branch_name
