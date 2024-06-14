@@ -1,7 +1,20 @@
 # Tajemnicza Ekipa - SUM
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Context](#context)
+3. [Content](#content)
+4. [Detailed Column Descriptions](#detailed-column-descriptions)
+5. [Training Method](#training-method)
+6. [Requirements](#requirements)
+7. [Setup Environment](#setup-environment)
+8. [Running the Application](#running-the-application)
+9. [Setup Development](#setup-development)
+
 ## Introduction
 The goal of this project is to create an application utilizing a Machine Learning engine to predict whether a bank client will subscribe to a term deposit based on marketing campaign data. The application was developed by the project group "Tajemnicza Ekipa".
+
+<img src="main-view.png">
 
 ## Context
 
