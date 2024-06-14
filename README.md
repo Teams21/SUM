@@ -48,6 +48,40 @@ The data is related to the direct marketing campaigns of a Portuguese banking in
 ### Missing Attribute Values:
 None
 
+## Training Method
+
+1. **Data Loading and Preparation:**
+    * Load training and test datasets.
+    * Concatenate these datasets to balance the class distribution of the target variable.
+
+2. **Class Balancing:**
+    * Identify the number of positive class ('yes') samples.
+    * Sample an equal number of negative class ('no') samples to balance the dataset.
+    * Combine the sampled negative class with the positive class.
+
+3. **Label Encoding:**
+    * Identify and encode categorical columns using LabelEncoder.
+
+4. **Data Cleaning:**
+    * Drop unnecessary columns based on domain knowledge or correlation analysis.
+
+5. **Feature and Target Separation:**
+    * Separate the features (X) and target variable (y).
+
+6. **Train-Test Split:**
+    * Split the dataset into training and testing sets.
+
+7. **Model Training:**
+    * Train three different models: RandomForestClassifier, LogisticRegression, and DecisionTreeClassifier.
+    * Print the training accuracy for each model.
+
+8. **Model Evaluation:**
+    * Make predictions on the test set using the trained models.
+    * Evaluate and print the accuracy and classification reports for each model.
+
+9. **Model Saving:**
+    * Save the trained LogisticRegression model to a file using pickle.
+
 ## Requirements
 
 To run the project, the following dependencies are needed:
@@ -76,18 +110,22 @@ To run the application, follow these steps:
 ```sh
 docker build -t s22678suml/projekt:1.0-slim .
 ```
-3. Run the Docker container using the command below or by running run.sh or run.ps1:
 ```sh
 docker run -dp 0.0.0.0:8501:8501 s22678suml/projekt:1.0-slim
 ```
-<img src="main-view.png">
 
-## Setup Development 
+## Setup Development
 
+```sh
 git checkout -b branch_name
-Do work...
-First push:
+```
+* Do work...
+* First push: 
+```sh
 git push -u origin branch_name
-All other push commands:
+```
+* All other push commands:
+```sh
 git push
-Merge when done (use pull requests)
+```
+* Merge when done (use pull requests).
