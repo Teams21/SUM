@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import pandas as pd
 from datetime import datetime
 
 # Load the model
@@ -75,6 +76,13 @@ poutcome_d = {
 # Title of the application
 title = 'Will the customer take advantage of the bank\'s offer?'
 
+# Initialize an empty DataFrame to store data
+if 'df' not in st.session_state:
+    st.session_state.df = pd.DataFrame(columns=[
+        'Age', 'Job', 'Education', 'Default', 'Balance', 'Housing', 'Loan', 'Contact', 
+        'Day', 'Month', 'Duration', 'Campaign', 'Poutcome', 'Previous'
+    ])
+
 def main():
     # Set the page configuration
     st.set_page_config(page_title=title)
@@ -138,6 +146,21 @@ def main():
     with prediction:
         st.header(f'{title} {"Yes" if accept_offer[0] == 1 else "No"}')
         st.subheader(f'Confidence: {s_confidence[0][accept_offer][0] * 100:,.2f} %')
+
+    # Add a button to add data to the DataFrame
+    if st.button('Add Data'):
+        new_data = pd.DataFrame(data, columns=[
+            'Age', 'Job', 'Education', 'Default', 'Balance', 'Housing', 'Loan', 'Contact', 
+            'Day', 'Month', 'Duration', 'Campaign', 'Poutcome', 'Previous'
+        ])
+        st.session_state.df = pd.concat([st.session_state.df, new_data], ignore_index=True)
+        st.write('Data added to the DataFrame.')
+
+    # Add a button to save the DataFrame as a CSV file
+    if st.button('Save Data as CSV'):
+        csv_filename = f'data_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
+        st.session_state.df.to_csv(csv_filename, index=False)
+        st.write(f'Data saved to {csv_filename}')
 
 if __name__ == '__main__':
     main()
