@@ -1,6 +1,7 @@
 """_summary_
 Create a prediction from the model based on the input paramameters from the app.
 """
+import os
 import pickle
 from datetime import datetime
 import streamlit as st
@@ -101,7 +102,7 @@ def main():
         st.title(title)
         # Display an image
         st.image(
-            'bank.png'
+            os.path.join('app', 'bank.png')
         )
 
     # Input fields for user data
@@ -166,7 +167,8 @@ def main():
 
     # Making prediction
     # Load the model
-    file_name = 'ml_models/banking_model.h5'
+    file_name = os.path.join('ml_models', 'banking_model.h5')
+    # file_name = 'ml_models/banking_model.h5'
     model = pickle.load(open(file_name, 'rb'))
     accept_offer = model.predict(data)
     s_confidence = model.predict_proba(data)
@@ -188,7 +190,8 @@ def main():
     # Add a button to save the DataFrame as a CSV file
     if st.button('Save Data as CSV'):
         csv_filename = f'data_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
-        st.session_state.df.to_csv(csv_filename, index=False)
+        csv_path = os.path.join('app', 'data', csv_filename)
+        st.session_state.df.to_csv(csv_path, index=False)
         st.write(f'Data saved to {csv_filename}')
 
 if __name__ == '__main__':
