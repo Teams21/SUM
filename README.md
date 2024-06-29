@@ -123,8 +123,13 @@ To run the application, follow these steps:
 ```sh
 docker build -t s22678suml/projekt:1.0-slim .
 ```
+### Linux/MacOS
 ```sh
-docker run -dp 0.0.0.0:8501:8501 s22678suml/projekt:1.0-slim
+docker run -dp 0.0.0.0:8501:8501 -v ${PWD}/data:/app/app/data s22678suml/projekt:1.1-slim
+```
+### Windows
+```sh
+docker run -dp 0.0.0.0:8501:8501 -v $PWD/data:/app/app/data s22678suml/projekt:1.1-slim
 ```
 
 ## Setup Development
